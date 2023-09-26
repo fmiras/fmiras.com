@@ -5,9 +5,9 @@ import { JetBrains_Mono } from 'next/font/google'
 const jetbrains = JetBrains_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: `Federico Mirás`,
+  title: `Federico Miras`,
   description:
-    'Federico Mirás is founder of Pluggy, a software engineer, early-stage startup angel investor and advisor.'
+    'Federico Miras is founder of Pluggy, a software engineer, early-stage startup angel investor and advisor.'
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
