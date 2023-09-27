@@ -1,22 +1,42 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { Computer } from './computer'
+import { CoffeeMachine } from './coffee-machine'
+import { Gameboy } from './gameboy'
+
+declare var window: Window & { keyboard: string[] }
 
 export default function Home() {
   const roles = ['software engineer', 'startup founder', 'angel investor']
   const maxRoleLength = Math.max(...roles.map((role) => role.length))
   const [role, setRole] = useState(roles[0])
   const [changing, setChanging] = useState(false)
+
   const [computerEnabled, setComputerEnabled] = useState(false)
+  const [coffeeEnabled, setCoffeeEnabled] = useState(false)
+  const [gameboyEnabled, setGameboyEnabled] = useState(false)
 
   useEffect(() => {
-    const handleKeyPress = (event: KeyboardEvent) => {
+    const handleKeyUp = (event: KeyboardEvent) => {
+      if (window.keyboard.join('').toLowerCase().endsWith('coffee')) {
+        setCoffeeEnabled(true)
+      }
+
+      if (window.keyboard.join('').toLowerCase().endsWith('gameboy')) {
+        setGameboyEnabled(true)
+      }
+
       if (event.key === '.') {
-        setComputerEnabled(!computerEnabled)
+        setComputerEnabled(true)
+      }
+
+      if (event.key === 'Escape') {
+        setComputerEnabled(false)
       }
     }
-    document.addEventListener('keypress', handleKeyPress)
-  }, [computerEnabled, setComputerEnabled])
+
+    document.addEventListener('keyup', handleKeyUp)
+  }, [])
 
   const handleMouseOver = () => {
     if (changing) {
@@ -110,10 +130,15 @@ export default function Home() {
         </ul>
       </section>
 
+      <section className="flex flex-row space-y-8 justify-end">
+        {coffeeEnabled && <CoffeeMachine />}
+        {gameboyEnabled && <Gameboy />}
+      </section>
+
       <Computer visible={computerEnabled} />
 
       {/* Blog */}
-      {/* <section className="flex-col space-y-4 justify-start">
+      {/* <section className="flex-col space-y-8 justify-start">
         <h2 className="text-2xl font-bold">some logs:</h2>
         <ul className="space-y-2">
           <li>

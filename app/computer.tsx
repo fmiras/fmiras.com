@@ -530,8 +530,10 @@ export function Computer({ visible }: ComputerProps) {
 export function ComputerScript() {
   return (
     <Script
+      id="computer-script"
       dangerouslySetInnerHTML={{
-        __html: `const m = document.querySelector("#m");
+        __html: `window.keyboard = [];
+        const m = document.querySelector("#m");
 const k = document.querySelector("#k");
 const s = document.querySelector("#s");
 
@@ -549,6 +551,7 @@ let base = (e) => {
 }
 
 let addKey = (e) => {
+    window.keyboard.push(e.key)
     let kc = event.keyCode;
 
     if ( (kc >= 65 && kc <= 90) || kc == 32) {
