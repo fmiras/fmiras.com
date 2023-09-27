@@ -1,11 +1,22 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { Computer } from './computer'
 
 export default function Home() {
   const roles = ['software engineer', 'startup founder', 'angel investor']
   const maxRoleLength = Math.max(...roles.map((role) => role.length))
   const [role, setRole] = useState(roles[0])
   const [changing, setChanging] = useState(false)
+  const [computerEnabled, setComputerEnabled] = useState(false)
+
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === '.') {
+        setComputerEnabled(!computerEnabled)
+      }
+    }
+    document.addEventListener('keypress', handleKeyPress)
+  }, [computerEnabled, setComputerEnabled])
 
   const handleMouseOver = () => {
     if (changing) {
@@ -47,7 +58,7 @@ export default function Home() {
   }
 
   return (
-    <main className="flex flex-col min-h-screen m-4 py-2 space-y-6">
+    <main className="flex flex-col m-4 py-2 space-y-6 w-full max-w-2xl">
       <header className="flex justify-between items-center">
         <h1 className="text-3xl font-bold mb-4">federico miras</h1>
 
@@ -98,6 +109,8 @@ export default function Home() {
           </li>
         </ul>
       </section>
+
+      <Computer visible={computerEnabled} />
 
       {/* Blog */}
       {/* <section className="flex-col space-y-4 justify-start">
