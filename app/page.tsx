@@ -78,8 +78,8 @@ export default function Home() {
   }
 
   return (
-    <main className="flex flex-col m-4 py-2 space-y-6 w-full max-w-2xl">
-      <header className="flex justify-between items-center">
+    <main className="flex flex-col space-y-6 w-full max-w-2xl px-4 py-8 md:py-32">
+      <header className="flex flex-col md:flex-row justify-between items-center">
         <h1 className="text-3xl font-bold mb-4">federico miras</h1>
 
         <nav className="flex justify-end space-x-4">
@@ -106,7 +106,20 @@ export default function Home() {
       <section className="flex-col space-y-4 justify-start">
         <h2 className="text-2xl font-bold">some projects:</h2>
 
-        <ul className="space-y-2">
+        <ul className="space-y-4">
+          <li>
+            <a
+              href="https://github.com/fmiras/gamegirl"
+              target="_blank"
+              className="hover:underline"
+            >
+              GameGirl
+            </a>
+            <span className="text-sm text-gray-400">
+              {' '}
+              Classic Nintendo Game Boy emulator written in Rust, compiled to WebAssembly.
+            </span>
+          </li>
           <li>
             <a
               href="https://github.com/fmiras/potterscript"
@@ -117,7 +130,35 @@ export default function Home() {
             </a>
             <span className="text-sm text-gray-400">
               {' '}
-              a programming language for the wizarding world{' '}
+              a programming language for the wizarding world. Check its{`'`}{' '}
+              <a
+                href="https://potterscript.fmiras.com"
+                target="_blank"
+                className="hover:underline text-white"
+              >
+                web playground
+              </a>
+              .
+            </span>
+          </li>
+          <li>
+            <a
+              href="https://github.com/fmiras/superoptimizer"
+              target="_blank"
+              className="hover:underline"
+            >
+              superoptimizer
+            </a>
+            <span className="text-sm text-gray-400">
+              {' '}
+              Bun-based superoptimizer of made-up assembly. There is also a{' '}
+              <a
+                href="https://github.com/fmiras/superoptimusprime"
+                target="_blank"
+                className="hover:underline text-white"
+              >
+                Rust version
+              </a>
             </span>
           </li>
           <li>
@@ -125,7 +166,10 @@ export default function Home() {
               Pluggy
             </a>
             {/* my first tech startup */}
-            <span className="text-sm text-gray-400"> my first technology startup </span>
+            <span className="text-sm text-gray-400">
+              {' '}
+              my first technology startup. An Open Banking API for Brazil.{' '}
+            </span>
           </li>
         </ul>
       </section>
