@@ -138,11 +138,12 @@ export default function Home() {
         <ul className="flex flex-col space-y-4">
           {projects.map((project: Project) => (
             <a
+              key={project.name}
               href={project.url}
               target="_blank"
               className="rounded-md p-2 transition-colors duration-300 ease-in-out cursor-pointer hover:shadow-md hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:font-bold"
             >
-              <li key={project.name}>
+              <li>
                 {' '}
                 {project.name}
                 <br />

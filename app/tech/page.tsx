@@ -70,11 +70,12 @@ export default function Home() {
         <ul className="flex flex-col space-y-2 mt-5">
           {apps.map((app) => (
             <a
+              key={app.name}
               href={app.url}
               target="_blank"
               className="rounded-md p-2 transition-colors duration-300 ease-in-out cursor-pointer hover:shadow-md hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:font-bold"
             >
-              <li key={app.name}>{app.name}</li>
+              <li>{app.name}</li>
             </a>
           ))}
         </ul>
