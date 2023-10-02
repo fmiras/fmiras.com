@@ -6,6 +6,35 @@ import { Gameboy } from './gameboy'
 
 declare var window: Window & { keyboard: string[] }
 
+type Project = {
+  name: string
+  url: string
+  description: string
+}
+
+const projects = [
+  {
+    name: 'GameGirl',
+    url: 'https://github.com/fmiras/gamegirl',
+    description: 'Classic Nintendo Game Boy emulator written in Rust, compiled to WebAssembly.'
+  },
+  {
+    name: 'PotterScript',
+    url: 'https://github.com/fmiras/potterscript',
+    description: 'a programming language for the wizarding world.'
+  },
+  {
+    name: 'superoptimizer',
+    url: 'https://github.com/fmiras/superoptimizer',
+    description: 'Bun-based superoptimizer of made-up assembly.'
+  },
+  {
+    name: 'Pluggy',
+    url: 'https://pluggy.ai',
+    description: 'my first technology startup. An Open Banking API for Brazil.'
+  }
+]
+
 export default function Home() {
   const roles = ['software engineer', 'startup founder', 'angel investor']
   const maxRoleLength = Math.max(...roles.map((role) => role.length))
@@ -78,7 +107,7 @@ export default function Home() {
   }
 
   return (
-    <main className="flex flex-col space-y-6 w-full max-w-2xl px-4 py-8 md:py-32">
+    <main className="flex flex-col space-y-6 w-full max-w-2xl px-4 py-8 md:py-16">
       <header className="flex flex-col md:flex-row justify-between items-center">
         <h1 className="text-3xl font-bold mb-4">federico miras</h1>
 
@@ -103,74 +132,27 @@ export default function Home() {
 
       <div className="border-t border-gray-200 my-8" />
 
-      <section className="flex-col space-y-4 justify-start">
-        <h2 className="text-2xl font-bold">some projects:</h2>
+      <section className="flex-col justify-start">
+        <h2 className="text-2xl font-bold my-6 p-2">some projects:</h2>
 
-        <ul className="space-y-4">
-          <li>
+        <ul className="flex flex-col space-y-4">
+          {projects.map((project: Project) => (
             <a
-              href="https://github.com/fmiras/gamegirl"
+              href={project.url}
               target="_blank"
-              className="hover:underline"
+              className="rounded-md p-2 transition-colors duration-300 ease-in-out cursor-pointer hover:shadow-md hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:font-bold"
             >
-              GameGirl
+              <li key={project.name}>
+                {' '}
+                {project.name}
+                <br />
+                <span
+                  className="text-sm text-gray-400
+                "
+                >{` ${project.description}`}</span>
+              </li>
             </a>
-            <span className="text-sm text-gray-400">
-              {' '}
-              Classic Nintendo Game Boy emulator written in Rust, compiled to WebAssembly.
-            </span>
-          </li>
-          <li>
-            <a
-              href="https://github.com/fmiras/potterscript"
-              target="_blank"
-              className="hover:underline"
-            >
-              PotterScript
-            </a>
-            <span className="text-sm text-gray-400">
-              {' '}
-              a programming language for the wizarding world. Check its{`'`}{' '}
-              <a
-                href="https://potterscript.fmiras.com"
-                target="_blank"
-                className="hover:underline text-white"
-              >
-                web playground
-              </a>
-              .
-            </span>
-          </li>
-          <li>
-            <a
-              href="https://github.com/fmiras/superoptimizer"
-              target="_blank"
-              className="hover:underline"
-            >
-              superoptimizer
-            </a>
-            <span className="text-sm text-gray-400">
-              {' '}
-              Bun-based superoptimizer of made-up assembly. There is also a{' '}
-              <a
-                href="https://github.com/fmiras/superoptimusprime"
-                target="_blank"
-                className="hover:underline text-white"
-              >
-                Rust version
-              </a>
-            </span>
-          </li>
-          <li>
-            <a href="https://pluggy.ai" target="_blank" className="hover:underline">
-              Pluggy
-            </a>
-            {/* my first tech startup */}
-            <span className="text-sm text-gray-400">
-              {' '}
-              my first technology startup. An Open Banking API for Brazil.{' '}
-            </span>
-          </li>
+          ))}
         </ul>
       </section>
 
@@ -180,32 +162,6 @@ export default function Home() {
       </section>
 
       <Computer visible={computerEnabled} />
-
-      {/* Blog */}
-      {/* <section className="flex-col space-y-8 justify-start">
-        <h2 className="text-2xl font-bold">some logs:</h2>
-        <ul className="space-y-2">
-          <li>
-            <a
-              href="https://github.com/fmiras/potterscript"
-              target="_blank"
-              className="hover:underline"
-            >
-              PotterScript
-            </a>
-            <span className="text-sm text-gray-400">
-              {' '}
-              a programming language for the wizarding world{' '}
-            </span>
-          </li>
-          <li>
-            <a href="https://pluggy.ai" target="_blank" className="hover:underline">
-              Pluggy
-            </a>
-            <span className="text-sm text-gray-400"> my first technology startup </span>
-          </li>
-        </ul>
-      </section> */}
     </main>
   )
 }
