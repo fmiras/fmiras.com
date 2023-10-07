@@ -13,11 +13,11 @@ type Project = {
 }
 
 const projects = [
-  {
-    name: 'GameGirl',
-    url: 'https://github.com/fmiras/gamegirl',
-    description: 'Classic Nintendo Game Boy emulator written in Rust, compiled to WebAssembly.'
-  },
+  // {
+  //   name: 'GameGirl',
+  //   url: 'https://github.com/fmiras/gamegirl',
+  //   description: 'Classic Nintendo Game Boy emulator written in Rust, compiled to WebAssembly.'
+  // },
   {
     name: 'PotterScript',
     url: 'https://github.com/fmiras/potterscript',
