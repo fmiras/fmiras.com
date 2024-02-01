@@ -19,6 +19,11 @@ const projects = [
   //   description: 'Classic Nintendo Game Boy emulator written in Rust, compiled to WebAssembly.'
   // },
   {
+    name: 'Scale AI',
+    url: 'https://scale.com',
+    description: 'we deliver high quality data for all type of AI models'
+  },
+  {
     name: 'PotterScript',
     url: 'https://github.com/fmiras/potterscript',
     description: 'a programming language for the wizarding world.'
@@ -26,7 +31,7 @@ const projects = [
   {
     name: 'superoptimizer',
     url: 'https://github.com/fmiras/superoptimizer',
-    description: 'Bun-based superoptimizer of made-up assembly.'
+    description: 'bun-based superoptimizer of made-up assembly.'
   },
   {
     name: 'Pluggy',
