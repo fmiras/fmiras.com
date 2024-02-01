@@ -21,7 +21,7 @@ const projects = [
   {
     name: 'Scale AI',
     url: 'https://scale.com',
-    description: 'we deliver high quality data for all type of AI models'
+    description: 'we deliver high quality training data for all type of AI models'
   },
   {
     name: 'PotterScript',
