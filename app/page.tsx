@@ -46,7 +46,7 @@ const projects = [
 ]
 
 export default function Home() {
-  const roles = ['software engineer', 'startup founder', 'angel investor']
+  const roles = ['software engineer', 'startup founder', 'angel investor', 'traveler', 'hacker']
   const maxRoleLength = Math.max(...roles.map((role) => role.length))
   const [role, setRole] = useState(roles[0])
   const [changing, setChanging] = useState(false)
