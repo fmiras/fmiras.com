@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Computer } from './computer'
 import { CoffeeMachine } from './coffee-machine'
 import { Gameboy } from './gameboy'
+import { BackgroundGradient } from '@/components/ui/backend-gradient'
 
 declare var window: Window & { keyboard: string[] }
 
@@ -10,18 +11,15 @@ type Project = {
   name: string
   url: string
   description: string
+  isStartup?: boolean
 }
 
 const projects = [
-  // {
-  //   name: 'GameGirl',
-  //   url: 'https://github.com/fmiras/gamegirl',
-  //   description: 'Classic Nintendo Game Boy emulator written in Rust, compiled to WebAssembly.'
-  // },
   {
     name: 'Scale AI',
     url: 'https://scale.com',
-    description: 'we deliver high quality training data for all type of AI models'
+    description: 'we deliver high quality training data for all type of AI models',
+    isStartup: true
   },
   {
     name: 'PotterScript',
@@ -36,7 +34,14 @@ const projects = [
   {
     name: 'Pluggy',
     url: 'https://pluggy.ai',
-    description: 'my first technology startup. An Open Banking API for Brazil.'
+    description: 'my first technology startup. An Open Banking API for Brazil.',
+    isStartup: true
+  },
+  {
+    name: 'Decentraland',
+    url: 'https://decentraland.org',
+    description: 'a virtual world owned by its users.',
+    isStartup: true
   }
 ]
 
@@ -141,24 +146,42 @@ export default function Home() {
         <h2 className="text-2xl font-bold my-6 p-2">some projects:</h2>
 
         <ul className="flex flex-col space-y-4">
-          {projects.map((project: Project) => (
-            <a
-              key={project.name}
-              href={project.url}
-              target="_blank"
-              className="rounded-md p-2 transition-colors duration-300 ease-in-out cursor-pointer hover:shadow-md hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:font-bold"
-            >
-              <li>
-                {' '}
-                {project.name}
-                <br />
-                <span
-                  className="text-sm text-gray-400
-                "
-                >{` ${project.description}`}</span>
-              </li>
-            </a>
-          ))}
+          {projects.map((project: Project) =>
+            project.isStartup ? (
+              <BackgroundGradient key={project.name} containerClassName="w-full">
+                <a
+                  href={project.url}
+                  target="_blank"
+                  className="block rounded-[22px] p-3 transition-colors duration-300 ease-in-out cursor-pointer bg-black/80 backdrop-blur-sm"
+                >
+                  <li className="text-white">
+                    <div className="flex items-start justify-between">
+                      <div className="flex flex-col">
+                        <span className="font-bold text-lg">{project.name}</span>
+                        <span className="text-sm text-gray-200">{project.description}</span>
+                      </div>
+                      <span className="text-xs px-3 py-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full font-medium shadow-lg">
+                        startup
+                      </span>
+                    </div>
+                  </li>
+                </a>
+              </BackgroundGradient>
+            ) : (
+              <a
+                key={project.name}
+                href={project.url}
+                target="_blank"
+                className="rounded-md p-2 transition-colors duration-300 ease-in-out cursor-pointer hover:shadow-md hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:font-bold"
+              >
+                <li>
+                  {project.name}
+                  <br />
+                  <span className="text-sm text-gray-400">{` ${project.description}`}</span>
+                </li>
+              </a>
+            )
+          )}
         </ul>
       </section>
 
