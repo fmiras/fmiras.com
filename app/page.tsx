@@ -148,11 +148,14 @@ export default function Home() {
         <ul className="flex flex-col space-y-4">
           {projects.map((project: Project) =>
             project.isStartup ? (
-              <BackgroundGradient key={project.name} containerClassName="w-full">
+              <BackgroundGradient
+                key={project.name}
+                containerClassName="w-full transition-transform duration-300 ease-in-out hover:scale-[1.02]"
+              >
                 <a
                   href={project.url}
                   target="_blank"
-                  className="block rounded-[22px] p-3 transition-colors duration-300 ease-in-out cursor-pointer bg-black/80 backdrop-blur-sm"
+                  className="block rounded-[22px] p-3 transition-all duration-300 ease-in-out cursor-pointer bg-black/80 backdrop-blur-sm hover:bg-black/90"
                 >
                   <li className="text-white">
                     <div className="flex items-start justify-between">
