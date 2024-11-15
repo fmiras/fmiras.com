@@ -16,6 +16,11 @@ type Project = {
 
 const projects = [
   {
+    name: 'Steam Summarize',
+    url: 'https://steamsummarize.com',
+    description: 'a tool to summarize steam reviews.'
+  },
+  {
     name: 'Scale AI',
     url: 'https://scale.com',
     description: 'we deliver high quality training data for all type of AI models',
