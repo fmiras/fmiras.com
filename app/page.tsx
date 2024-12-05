@@ -16,6 +16,11 @@ type Project = {
 
 const projects = [
   {
+    name: 'ln.fyi',
+    url: 'https://ln.fyi',
+    description: 'Simple Lightning Network statistics.'
+  },
+  {
     name: 'Steam Summarize',
     url: 'https://steamsummarize.com',
     description: 'a tool to summarize steam reviews.'
