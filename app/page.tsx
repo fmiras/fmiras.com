@@ -28,8 +28,8 @@ const projects = [
   {
     name: 'Scale AI',
     url: 'https://scale.com',
-    description: 'we deliver high quality training data for all type of AI models',
-    isStartup: true
+    description: 'we deliver high quality training data for all type of AI models'
+    // isStartup: true
   },
   {
     name: 'PotterScript',
@@ -44,14 +44,14 @@ const projects = [
   {
     name: 'Pluggy',
     url: 'https://pluggy.ai',
-    description: 'my first technology startup. An Open Banking API for Brazil.',
-    isStartup: true
+    description: 'my first technology startup. An Open Banking API for Brazil.'
+    // isStartup: true
   },
   {
     name: 'Decentraland',
     url: 'https://decentraland.org',
-    description: 'a virtual world owned by its users.',
-    isStartup: true
+    description: 'a virtual world owned by its users.'
+    // isStartup: true
   }
 ]
 
