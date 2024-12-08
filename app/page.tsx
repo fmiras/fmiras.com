@@ -132,6 +132,9 @@ export default function Home() {
         <h1 className="text-3xl font-bold mb-4">federico miras</h1>
 
         <nav className="flex justify-end space-x-4">
+          <a href="mailto:miras.federico@gmail.com" className="hover:underline text-sm">
+            email
+          </a>
           <a
             href="https://twitter.com/fefomiras"
             target="_blank"
@@ -197,13 +200,6 @@ export default function Home() {
           )}
         </ul>
       </section>
-
-      <section className="flex flex-row space-y-8 justify-end">
-        {coffeeEnabled && <CoffeeMachine />}
-        {gameboyEnabled && <Gameboy />}
-      </section>
-
-      <Computer visible={computerEnabled} />
     </main>
   )
 }
