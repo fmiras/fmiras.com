@@ -1,8 +1,5 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { Computer } from './computer'
-import { CoffeeMachine } from './coffee-machine'
-import { Gameboy } from './gameboy'
 import { BackgroundGradient } from '@/components/ui/backend-gradient'
 
 declare var window: Window & { keyboard: string[] }
