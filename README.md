@@ -1,2 +1,0 @@
-## TODO
-- [ ] My Lego Collection
