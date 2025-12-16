@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 
-import { ComputerScript } from './computer'
 import './globals.css'
 
 const jetbrains = JetBrains_Mono({ subsets: ['latin'] })
@@ -19,7 +18,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={[jetbrains.className, 'flex justify-center'].join(' ')}>
         {children}
         <Analytics />
-        <ComputerScript />
       </body>
     </html>
   )
